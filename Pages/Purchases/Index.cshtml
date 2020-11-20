@@ -1,0 +1,56 @@
+﻿@page
+@model GourmetPizzaPrac3.Pages.Purchases.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Purchases</h1>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortorder="@ViewData["NextNumberOrder"]">
+                    @Html.DisplayNameFor(model => model.Purchase[0].PizzaCount)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortorder="@ViewData["NextCostOrder"]">
+                    @Html.DisplayNameFor(model => model.Purchase[0].TotalCost)
+                </a>
+            </th>
+
+            <th>
+                <a asp-action="Index" asp-route-sortorder="@ViewData["NextNameOrder"]">
+                    @Html.DisplayNameFor(model => model.Purchase[0].ThePizza)
+                </a>
+            </th>
+            <th>
+                @*<a asp-action="Index" asp-route-sortorder="@ViewBag.NextCusOrder"></a>*@
+                @Html.DisplayNameFor(model => model.Purchase[0].TheCustomer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Purchase) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PizzaCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThePizza.pizzaName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheCustomer.FullName)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

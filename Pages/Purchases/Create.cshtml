@@ -1,0 +1,86 @@
+﻿@page
+@model GourmetPizzaPrac3.Pages.Purchases.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Purchases Pizza</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Purchases.pizzaID" class="control-label"></label>
+                <select asp-for="Purchases.pizzaID" class="form-control" asp-items="Model.TitleList"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Purchases.PizzaCount" class="control-label"></label>
+                <input asp-for="Purchases.PizzaCount" class="form-control" />
+                <span asp-validation-for="Purchases.PizzaCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Order Pizza" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+@if (ViewData["TotalPrice"] != null)
+{
+    if (Model.Purchases.pizzaID == 1)
+    {
+        <h2>Purchase Confirmation:</h2>
+        <h4>
+            Your have purchased <b>@Model.Purchases.PizzaCount</b>
+            pizzas of <b>Beef Pizza</b>
+        </h4>
+        <h4>
+            The Total Price is: <b>@ViewData["TotalPrice"]$</b>
+        </h4>
+    }
+
+    if (Model.Purchases.pizzaID == 2)
+    {
+        <h2>Purchase Confirmation:</h2>
+        <h4>
+            Your have purchased <b>@Model.Purchases.PizzaCount</b>
+            pizzas of <b>Chicken Pineapple Pizza</b>
+        </h4>
+        <h4>
+            The Total Price is: <b>@ViewData["TotalPrice"]$</b>
+        </h4>
+    }
+
+    if (Model.Purchases.pizzaID == 3)
+    {
+        <h2>Purchase Confirmation:</h2>
+        <h4>
+            Your have purchased <b>@Model.Purchases.PizzaCount</b>
+            pizzas of <b>Pepperoni Pizza</b>
+        </h4>
+        <h4>
+            The Total Price is: <b>@ViewData["TotalPrice"]$</b>
+        </h4>
+    }
+
+    if (Model.Purchases.pizzaID == 4)
+    {
+        <h2>Purchase Confirmation:</h2>
+        <h4>
+            Your have purchased <b>@Model.Purchases.PizzaCount</b>
+            pizzas of <b>Vegetarian Pizza</b>
+        </h4>
+        <h4>
+            The Total Price is: <b>@ViewData["TotalPrice"]$</b>
+        </h4>
+    }
+
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

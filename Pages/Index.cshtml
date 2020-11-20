@@ -1,0 +1,90 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    p[id="price"] {
+        color: red;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    h3 {
+        color: blue;
+    }
+</style>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ul>
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/BeefPizza.png" alt="BBQ Beef Pizza" />
+            <div class="carousel-caption">
+                <h3>
+                    BBQ Beef Pizza
+                </h3>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/ChickenpineapplePizza.png" alt="Chicken Pineapple Pizza" />
+            <div class="carousel-caption">
+                <h3>
+                    Chicken Pineapple Pizza
+                </h3>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/PepperoniPizza.png" alt="Pepperoni Pizza" />
+            <div class="carousel-caption">
+                <h3>
+                    Pepperoni Pizza
+                </h3>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/VegetarianPizza.png" alt="Vegetarian Pizza" />
+            <div class="carousel-caption">
+                <h3>
+                    Vegetarian Pizza
+                </h3>
+            </div>
+        </div>
+    </div>
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <h2>Welcome to Gourmet Pizza!</h2>
+        <p>
+            This a great place for Pizza lovers!
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-center">Useful Links</h2>
+        <ul>
+            <li><a asp-area="" asp-page="/Index">Home</a></li>
+            <li><a asp-area="" asp-page="/Pizzas/Index">Pizzas Index</a></li>
+            <li><a asp-area="" asp-page="/Privacy">Privacy</a></li>
+        </ul>
+    </div>
+</div>

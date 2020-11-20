@@ -1,0 +1,35 @@
+@page
+@model GourmetPizzaPrac3.Pages.Purchases.CalcPurchaseStatsModel
+
+@{
+    ViewData["Title"] = "Pizza Order Statistics based on Pizzacount";
+}
+
+<h2>Pizza Order Statistics based on Pizza Count</h2>
+<br />
+
+<div>
+    <table class="table">
+        @* .table is a Bootstrap class giving table styles *@
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Stats[0].PizzaCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stats[0].Total)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Stats)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PizzaCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
